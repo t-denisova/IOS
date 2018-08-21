@@ -8,12 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+
+class ViewController: UIViewController, DelegateProtocol {
 
     @IBOutlet weak var mainButton: UIButton!
     @IBOutlet weak var targetLabel: UILabel!
     
     var targetValue = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,18 +25,18 @@ class ViewController: UIViewController {
         mainButton.layer.borderWidth = 10
         mainButton.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         
-        StartOver()
+        StartOver(text: "start")
         
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(LongTap(_:)))
         longGesture.minimumPressDuration = 0
         mainButton.addGestureRecognizer(longGesture)
     }
-    
     var counter = 0.1
     var timer = Timer()
     var isTimerRunning = false
     
-    func StartOver() {
+    func StartOver(text: String) {
+        print(text)
         targetValue = 1 + Int(arc4random_uniform(10))
         targetLabel.text = String(targetValue)
     }
@@ -64,7 +66,6 @@ class ViewController: UIViewController {
             let destination : ResultViewController = segue.destination as! ResultViewController
             destination.counterPassedOver = counter
             destination.targetValuePassedOver = targetValue
-            StartOver()
         }
     }
     
