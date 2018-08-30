@@ -1,4 +1,4 @@
-A game challenging your perception of time that I made while practicing my swit skills.
+[TimerGame](https://github.com/t-denisova/IOS/tree/master/TimerGame) challenging your perception of time that I made while practicing my swit skills.
 
 
 <img width=200 src="https://user-images.githubusercontent.com/26934191/44418828-1adfb480-a582-11e8-91b1-943bed6c4f9e.png">
